@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pet Shop | Unique Finds</title>
+    <style>
+        /* Modern reset and font */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif;
+            background: #fff9f0; /* Warm cream background */
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+
+        /* Unique Header with Gradient */
+        header {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px dashed #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        header h1 { font-size: 3rem; color: #fff; text-shadow: 2px 2px #ff6b6b; }
+
+        /* Navigation Pills */
+        nav {
+            margin-top: -20px;
+            text-align: center;
+        }
+        nav a {
+            background: #4ecdc4;
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-block;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 0 #399690;
+        }
+        nav a:hover { transform: translateY(-3px); background: #45b7af; }
+
+        /* Main Content Container */
+        .shop-floor {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 50px 10%;
+        }
+
+        /* Unique Pet Card Style */
+        .pet-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 3px solid #ffeaa7;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .pet-card:hover {
+            transform: rotate(-2deg) scale(1.02);
+            box-shadow: 15px 15px 0px #ffeaa7;
+        }
+
+        .pet-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 3px dashed #ffeaa7;
+        }
+
+        .pet-info { padding: 20px; text-align: center; }
+        
+        .price-tag {
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        video {
+            width: 90%;
+            border-radius: 15px;
+            margin: 10px auto;
+            display: block;
+            border: 2px solid #eee;
+        }
+
+        footer {
+            background: #4a4a4a;
+            color: #eee;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>The Pet Shop</h1>
+    <p>Hand-picked happiness for your home</p>
+</header>
+
+<nav>
+    <a href="#">Explore All Pets</a>
+</nav>
+
+<main class="shop-floor">
+    
+    <!-- Pet 1 -->
+    <article class="pet-card">
+        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=500" alt="Beagle">
+        <div class="pet-info">
+            <span class="price-tag">Adoption Ready</span>
+            <h3>Buddy the Beagle</h3>
+            <p>Super smart and ready for backyard adventures.</p>
+            <video controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            </video>
+        </div>
+    </article>
+
+    <!-- Pet 2 -->
+    <article class="pet-card">
+        <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=500" alt="Cool Cat">
+        <div class="pet-info">
+            <span class="price-tag">Featured Pet</span>
+            <h3>Luna the Explorer</h3>
+            <p>A chill cat who loves wearing shades and bird watching.</p>
+            <video controls>
+                <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+            </video>
+        </div>
+    </article>
+
+    <!-- Pet 3 -->
+    <article class="pet-card">
+        <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=500" alt="Hamster">
+        <div class="pet-info">
+            <span class="price-tag">Small & Sweet</span>
+            <h3>Nugget</h3>
+            <p>A tiny champion of the running wheel.</p>
+        </div>
+    </article>
+
+</main>
+
+<footer>
+    <p>Open Daily 9am - 6pm</p>
+    <p>Making tails wag since 2026</p>
+</footer>
+
+</body>
+</html>
