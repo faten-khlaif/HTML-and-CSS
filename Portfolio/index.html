@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faten Khlaif | Creative Portfolio</title>
+  <style>
+    /* Global Styles & Colorful Theme */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0b0c10;
+      color: #c5c6c7;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #66fcf1;
+      margin-bottom: 15px;
+    }
+
+    /* 1. Fixed Navbar styling requirements */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #1f2833; /* Assigned background color */
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(102, 252, 241, 0.2);
+    }
+    .navbar a {
+      color: #66fcf1; /* Assigned font color */
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 20px;
+      padding: 5px 10px;
+      transition: all 0.3s ease;
+    }
+    /* Navbar Hover Effect */
+    .navbar a:hover {
+      color: #ff007f; /* Color change on hover */
+      background-color: rgba(255, 0, 127, 0.1);
+      border-radius: 5px;
+      text-shadow: 0 0 8px #ff007f;
+    }
+
+    /* Page Sections Container */
+    .container {
+      max-width: 1100px;
+      margin: 80px auto 40px auto; /* Margin top to clear fixed navbar */
+      padding: 20px;
+    }
+    section {
+      background: #1f2833;
+      padding: 40px;
+      margin-bottom: 40px;
+      border-radius: 15px;
+      border: 1px solid #45f3ff;
+      box-shadow: 0 0 15px rgba(69, 243, 255, 0.1);
+    }
+
+    /* 2. Video with Text Overlay & Autoplay Muted Loop */
+    .video-hero {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 15px;
+      margin-bottom: 40px;
+      border: 2px solid #ff007f;
+    }
+    .video-hero video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .video-overlay-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(11, 12, 16, 0.6); /* Translucent background darken */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .video-overlay-text h1 {
+      font-size: 3rem;
+      color: #ff007f;
+      text-shadow: 0 0 10px #ff007f;
+    }
+
+    /* 3. Text Placed Over an Image requirement */
+    .image-text-container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .image-text-container img {
+      width: 100%;
+      display: block;
+    }
+    .text-over-image {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(11, 12, 16, 0.8);
+      color: #66fcf1;
+      padding: 15px;
+      border-radius: 5px;
+      border-left: 4px solid #ff007f;
+    }
+
+    /* 4. Paragraph Hover Effect requirement */
+    .interactive-p {
+      padding: 15px;
+      background: #0b0c10;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    .interactive-p:hover {
+      color: #ff007f;
+      background: #1f2833;
+      transform: translateX(10px);
+      box-shadow: -5px 0 0 #ff007f;
+    }
+
+    /* 5. Center Image, CSS Filter, and Rounded Edges requirements */
+    .centered-image-wrapper {
+      text-align: center; /* Centers the inline-block image element */
+      margin: 30px 0;
+    }
+    .filtered-img {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 25px; /* Gives the image rounded edges */
+      filter: hue-rotate(90deg) saturate(150%); /* Applies a cool CSS color filter */
+      border: 3px solid #66fcf1;
+    }
+
+    /* 6. Image Overlay Fade requirement */
+    .fade-overlay-box {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      margin: 20px auto;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .fade-overlay-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .overlay-fade {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #ff007f, #66fcf1);
+      opacity: 0; /* Hidden by default */
+      transition: opacity 0.4s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #0b0c10;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .fade-overlay-box:hover .overlay-fade {
+      opacity: 0.9; /* Fades in on hover */
+    }
+
+    /* 7. Two-Column Layout styling requirements */
+    .two-column-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .column {
+      width: 48%; /* Specifying width */
+      height: 250px; /* Specifying height */
+      background-color: #0b0c10;
+      padding: 20px;
+      border-radius: 8px;
+      border-top: 4px solid #66fcf1;
+    }
+    .column p {
+      color: #a5f3fc; /* Assigned font color specifically to text inside columns */
+    }
+
+    /* 8. Table Styling requirements */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 25px;
+      background-color: #0b0c10;
+    }
+    table, th, td {
+      border: 2px solid #45f3ff; /* Created a border */
+    }
+    th, td {
+      padding: 12px; /* Added padding in the cells */
+      text-align: left;
+    }
+    tr:first-child {
+      background-color: #ff007f; /* Add background color in the top row */
+    }
+    tr:first-child th {
+      color: #0b0c10;
+    }
+
+    /* 9. Footer styling requirements */
+    footer {
+      background-color: #1f2833;
+      padding: 20px;
+      margin-top: 40px;
+      border-top: 2px solid #ff007f;
+    }
+    footer p {
+      text-align: center; /* Centered styling */
+      font-weight: bold; /* Bold styling */
+      color: #66fcf1;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#home">Home</a> <a href="#instructions">How To Create a Fixed Menu</a>
+  </nav>
+
+  <div class="container">
+
+    <div class="video-hero" id="home">
+      <video autoplay muted loop playsinline>
+        <source src="https://player.vimeo.com/external/403816739.sd.mp4?s=dc6fb3856b3e8e16cc3645b0a39006509f6356c8&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-overlay-text">
+        <h1>Faten Khlaif</h1>
+        <p style="color: #66fcf1; font-size: 1.2rem;">Welcome to my digital creative workspace</p>
+      </div>
+    </div>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p class="interactive-p">Hover over this text element to see a smooth transform transition. My name is Faten Khlaif, and I am a designer and developer exploring frontend layouts.</p>
+      
+      <h3 style="margin-top:20px;">Centered Image with Rounded Edges + CSS Filter</h3>
+      <div class="centered-image-wrapper">
+        <img class="filtered-img" src="https://images.pexels.com/photos/17483848/pexels-photo-17483848.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Faten Profile Workspace Mockup">
+      </div>
+    </section>
+
+    <section>
+      <h2>Image Overlay Fade Component</h2>
+      <p>Hover over the image below to view the color gradient overlay reveal effect:</p>
+      <div class="fade-overlay-box">
+        <img src="https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Abstract Art">
+        <div class="overlay-fade">Project Discovered!</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Text Overlay Component</h2>
+      <div class="image-text-container">
+        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Workspace Team">
+        <div class="text-over-image">
+          <h4>Faten Khlaif Design</h4>
+          <p style="font-size: 0.85rem; color:#fff;">Text layer positioned dynamically over an image.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="instructions">
+      <h2>Two-Column Layout & Fixed Navbar Guide</h2>
+      <p>Below is an example layout using a distinct width and height allocation.</p>
+      
+      <div class="two-column-grid">
+        <div class="column">
+          <h3>Column 1</h3>
+          <p>This column has a specific width of 48% and an explicitly designated static height of 250px. The typography color here is uniquely colored light cyan.</p>
+        </div>
+        <div class="column">
+          <h3>Column 2</h3>
+          <p>To implement the fixed header navbar used above, you must apply <code>position: fixed; top: 0; width: 100%;</code> inside the CSS rules to stick it securely atop the viewport.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skill Evaluation Matrix</h2>
+      <table>
+        <tr>
+          <th>Skill Set Elements</th>
+          <th>Competency Level</th>
+          <th>Execution Framework</th>
+        </tr>
+        <tr>
+          <td>HTML5 Semantics</td>
+          <td>Advanced Mastery</td>
+          <td>Native Browser Core</td>
+        </tr>
+        <tr>
+          <td>CSS Graphic Filters</td>
+          <td>Intermediate Fluidity</td>
+          <td>GPU Accelerated Engine</td>
+        </tr>
+        <tr>
+          <td>Responsive Structuring</td>
+          <td>Advanced Deployment</td>
+          <td>Flexbox & Grid Arrays</td>
+        </tr>
+      </table>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Faten Khlaif. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
